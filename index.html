@@ -1,54 +1,109 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bermain dengan Warna</title>
-    <link rel="stylesheet" href="style2.css">
-    <!-- IMPORT CDN JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bermain dengan Warna</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    #tombolMerah { background-color: #ff4e4e; color: white; }
+    #tombolBiru { background-color: #4ecdc4; color: white; }
+    #tombolKuning { background-color: #ffd93d; color: black; }
+
+    #kotakWarna {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      border: 3px solid #333;
+      border-radius: 10px;
+      background-color: rgb(165, 163, 163);
+      transition: background-color 0.5s, all 0.5s ease;
+    }
+
+    @media (max-width: 480px) {
+      button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #kotakWarna {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Bermain dengan Warna</h1>
+  <h1>Bermain dengan Warna</h1>
 
-    <div>
-        <button id="tombolMerah">Merah</button>
-        <button id="tombolBiru">Biru</button>
-        <button id="tombolKuning">Kuning</button>
-    </div>
+  <div>
+    <button id="tombolMerah">Merah</button>
+    <button id="tombolBiru">Biru</button>
+    <button id="tombolKuning">Kuning</button>
+  </div>
 
-    <div id="kotakWarna" style="width: 100px; height: 100px; background-color: rgb(165, 163, 163); margin-top: 10px;"></div>
+  <div id="kotakWarna"></div>
 
-    <div>
-        <button id="sembunyikanKotak">Sembunyikan Kotak</button>
-        <button id="tampilkanKotak">Tampilkan Kotak</button>
-    </div>
+  <div>
+    <button id="sembunyikanKotak">Sembunyikan Kotak</button>
+    <button id="tampilkanKotak">Tampilkan Kotak</button>
+  </div>
 
-    <p>Klik tombol warna untuk mengubah warna kotak.</p>
-    <p>Gunakan tombol Sembunyikan dan Tampilkan untuk menyembunyikan dan menampilkan kotak.</p>
+  <p>Klik tombol warna untuk mengubah warna kotak.</p>
+  <p>Gunakan tombol Sembunyikan dan Tampilkan untuk menyembunyikan dan menampilkan kotak.</p>
 
-    <script>
-        $(document).ready(function() {
-            $("#tombolMerah").click(function() {
-                $("#kotakWarna").css("background-color", "red");
-            });
+  <script>
+    $(document).ready(function() {
+      $("#tombolMerah").click(function() {
+        $("#kotakWarna").css("background-color", "red");
+      });
 
-            $("#tombolBiru").click(function() {
-                $("#kotakWarna").css("background-color", "turquoise");
-            });
+      $("#tombolBiru").click(function() {
+        $("#kotakWarna").css("background-color", "turquoise");
+      });
 
-            $("#tombolKuning").click(function() {
-                $("#kotakWarna").css("background-color", "yellow");
-            });
+      $("#tombolKuning").click(function() {
+        $("#kotakWarna").css("background-color", "yellow");
+      });
 
-            $("#sembunyikanKotak").click(function() {
-                $("#kotakWarna").hide();
-            });
+      $("#sembunyikanKotak").click(function() {
+        $("#kotakWarna").fadeOut();
+      });
 
-            $("#tampilkanKotak").click(function() {
-                $("#kotakWarna").show();
-            });
-        });
-    </script>
+      $("#tampilkanKotak").click(function() {
+        $("#kotakWarna").fadeIn();
+      });
+    });
+  </script>
 </body>
 </html>
